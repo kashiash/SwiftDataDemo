@@ -13,5 +13,6 @@ struct SwiftDataDemoApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [TodoModel.self, Tag.self])
     }
 }
