@@ -362,7 +362,7 @@ To zapewnia przejrzysty wygląd podglądu i pozwala dodać dowolną logikę wido
 
 ### Dodatkowe korzyści
 
-- Możesz przenieść pliki rozszerzeń i zasoby (jeśli istnieją) związane z podglądem do folderu „preview content”.
+- Możesz przenieść pliki rozszerzeń i zasoby (jeśli istnieją) związane z podglądem do folderu „preview content”. Niebęda one dołaczane do wersji wgrywanej na urządzenie, co uchroni nas przed ładowaniem danych testowych do docelowej apliakcji.
 - Więcej informacji o „preview content” znajdziesz w wideo z WWDC.
 
 https://developer.apple.com/videos/play/wwdc2020/10149
@@ -545,6 +545,13 @@ struct ContentView: View {
 }
 
 
+
+```
+
+Ups, dużo kodu naraz!  
+Głównie rozkład widoku!  
+
+```swift
 struct TodoCard: View {
     @ObservableModel var todo: TodoModel
     
@@ -605,8 +612,10 @@ struct TodoCard: View {
 }
 ```
 
-Ups, dużo kodu naraz!  
-Głównie rozkład widoku!  
+![image-20240913231701818](image-20240913231701818.png)
+
+
+
 Najważniejsze części to poniższe funkcje, w których wykonujemy wszystkie operacje na danych.
 
 ```swift

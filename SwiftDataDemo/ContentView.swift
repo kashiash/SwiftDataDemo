@@ -26,18 +26,7 @@ struct ContentView: View {
                             Text(todo.title)
                             Text(todo.content)
                         } label: {
-                            VStack{
-                                HStack{
-                                    todo.icon
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 20)
-
-                                    Text(todo.title)
-                                }
-                                Text(todo.content)
-                                    .font(.caption2)
-                            }
+                            TodoCard(todo: todo)
                         }
 
                     }
