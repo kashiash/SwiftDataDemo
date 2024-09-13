@@ -351,19 +351,21 @@ Dzięki rozszerzeniu i zmiennym statycznym możemy uprościć nasz kod podglądu
 
 ```swift
 #Preview {
-    CountryScreen()
+    ContentView()
     .modelContainer(Country.preview)
 }
 ```
 
 To zapewnia przejrzysty wygląd podglądu i pozwala dodać dowolną logikę widoku wymaganą dla podglądu, a także izolować dane testowe w zupełnie innych plikach.
 
+![image-20240913230219263](image-20240913230219263.png)
+
 ### Dodatkowe korzyści
 
 - Możesz przenieść pliki rozszerzeń i zasoby (jeśli istnieją) związane z podglądem do folderu „preview content”.
 - Więcej informacji o „preview content” znajdziesz w wideo z WWDC.
 
-
+https://developer.apple.com/videos/play/wwdc2020/10149
 
 
 

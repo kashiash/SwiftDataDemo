@@ -69,12 +69,6 @@ struct ContentView: View {
 }
 
 #Preview {
-
-    let container = try! ModelContainer(for: TodoModel.self,
-                                        configurations: ModelConfiguration(isStoredInMemoryOnly: true))
-    let date = Date()
-    let newTodo = TodoModel(title: "\(date)", content: "Todo Created on \(Date())", iconData: UIImage(systemName: "car.front.waves.left.and.right.and.up.fill")!,  tags: [])
-    container.mainContext.insert(newTodo)
-    return ContentView()
-        .modelContainer(container)
+    ContentView()
+        .modelContainer(TodoModel.preview)
 }
