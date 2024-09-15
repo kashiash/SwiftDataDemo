@@ -17,14 +17,12 @@ struct ContentView: View {
         NavigationStack{
             ScrollView{
                 VStack(spacing:20) {
+
+
+
                     ForEach(todoList){ todo in
                         NavigationLink {
-                            todo.icon
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50)
-                            Text(todo.title)
-                            Text(todo.content)
+                            TodoDetail(todo: todo)
                         } label: {
                             TodoCard(todo: todo)
                         }
@@ -42,13 +40,51 @@ struct ContentView: View {
                 print("todo list changed")
             }
             .toolbar {
-                Button("Add Task") {
-                    addTodo()
+                HStack(spacing: 10) {
+                    Button(action: {
+                        addTodo()
+                    }, label: {
+                        Text("Add Todo")
+                    })
+                    .foregroundStyle(.white)
+              //      .padding()
+                    .background(RoundedRectangle(cornerRadius: 8).fill(.blue))
+
+                    Button(action: {
+                        addTag()
+                    }, label: {
+                        Text("Add Tag")
+                    })
+                    .foregroundStyle(.white)
+                //    .padding()
+                    .background(RoundedRectangle(cornerRadius: 8).fill(.blue))
+
+                    Button(action: {
+                        guard let lastTag = tags.last else {return}
+                        deleteTag(lastTag)
+                    }, label: {
+                        Text("Delete Tag")
+                    })
+                    .foregroundStyle(.white)
+                //    .padding()
+                    .background(RoundedRectangle(cornerRadius: 8).fill(.red))
+
                 }
+                Spacer()
+                    .frame(height: 20)
             }
         }
     }
 
+    private func addTag() {
+        let color = TagColor.allCases.randomElement() ?? .blue
+        let newTag = Tag(name: "Tag \(tags.count + 1)", color: color, todos: [])
+        modelContext.insert(newTag)
+    }
+
+    private func deleteTag(_ tag: Tag) {
+        modelContext.delete(tag)
+    }
 
     private func addTodo() {
         let date = Date()

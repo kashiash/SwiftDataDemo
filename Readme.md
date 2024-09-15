@@ -549,7 +549,7 @@ struct ContentView: View {
 ```
 
 Ups, dużo kodu naraz!  
-Głównie rozkład widoku!  
+Do tego dojdzie jeszcze układ  widoku `TodoCard`!  
 
 ```swift
 struct TodoCard: View {
